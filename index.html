@@ -201,7 +201,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-17 17:31:03" itemprop="dateModified" datetime="2021-04-17T17:31:03Z">2021-04-17</time>
+                <time title="修改时间：2021-04-18 08:43:39" itemprop="dateModified" datetime="2021-04-18T08:43:39Z">2021-04-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -224,10 +224,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h4 id="Golang环境变量"><a href="#Golang环境变量" class="headerlink" title="Golang环境变量"></a>Golang环境变量</h4><p>环境变量其实是整个操作系统的设置，全局生效。环境变量可以使各种命令运行起来更加方便。Golang的环境变量会在Golang安装完成后自动设置一部分，后续也可以根据需求自行调整。Golang的环境变量可以在命令行使用“go env”查看，如下：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">➜   go env</span><br><span class="line">GOARCH=&quot;amd64&quot;</span><br><span class="line">GOOS=&quot;darwin&quot;</span><br><span class="line">GOROOT=&quot;/usr/local/opt/go@1.12/libexec&quot;</span><br><span class="line">GOPATH=&quot;/Users/mengshuai/programs/go&quot;</span><br><span class="line">GOBIN=&quot;/Users/mengshuai/programs/go/bin&quot;</span><br></pre></td></tr></table></figure>
+          <p>根据用途的不同，Golang源代码分为三类，分别是：命令源码文件、库源码文件和测试源码文件。</p>
+<h4 id="命令源码文件与“main”包"><a href="#命令源码文件与“main”包" class="headerlink" title="命令源码文件与“main”包"></a>命令源码文件与“main”包</h4><p>保存程序执行入口代码的文件，所谓“入口代码”就是main函数，类似于C语言或Java，Golang也采用了main函数作为程序执行的起点和入口。</p>
+<ol>
+<li><p>一个源码代码文件能够成为命令源码文件的条件有两个：package声明为“main”且包含“main”函数，代码如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">➜   cat main.go </span><br><span class="line">package main</span><br><span class="line"></span><br><span class="line">func main() &#123;&#125;</span><br></pre></td></tr></table></figure>
 
-<p>这里只打印出了比较重要的几个。</p>
+<p>对于命令源码文件，”go build“在编译之后还会进行链接等动作，最终生成一个可执行文件或者命令，运行这个命令或可执行文件，就代表运行写好的程序。代码如下：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">➜   go build main.go </span><br><span class="line">➜   ls</span><br><span class="line">main    main.go</span><br><span class="line">➜   ./main </span><br><span class="line">➜   </span><br></pre></td></tr></table></figure>
+
+<p>因为这个程序只有一个空的main函数，什么都没有做，所以执行之后什么都没发生。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/04/15/go-package2/#more" rel="contents">
