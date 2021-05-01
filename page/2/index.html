@@ -22,26 +22,26 @@
 
   <meta property="og:type" content="website">
 <meta property="og:title" content="觅渡">
-<meta property="og:url" content="http://yoursite.com/categories/%E6%8A%80%E6%9C%AF/index.html">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
 <meta property="og:site_name" content="觅渡">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="孟帅">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/categories/%E6%8A%80%E6%9C%AF/">
+<link rel="canonical" href="http://yoursite.com/page/2/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : false,
+    isHome : true,
     isPost : false,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>分类: 技术 | 觅渡</title>
+  <title>觅渡</title>
   
 
 
@@ -164,218 +164,95 @@
         <div class="content-wrap">
           
 
-          <div class="content category">
+          <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/05/cache/">
 
-  
-  
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">技术
-          <small>分类</small>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="name" content="孟帅">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="觅渡">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/10/05/cache/" class="post-title-link" itemprop="url">缓存与页面自动更新</a>
         </h2>
-      </div>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-10-05 00:40:49" itemprop="dateCreated datePublished" datetime="2018-10-05T00:40:49Z">2018-10-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-04-01 06:45:27" itemprop="dateModified" datetime="2021-04-01T06:45:27Z">2021-04-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web/" itemprop="url" rel="index"><span itemprop="name">web</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2021</span>
+          <h3 id="遇到的问题："><a href="#遇到的问题：" class="headerlink" title="遇到的问题："></a>遇到的问题：</h3><p>当浏览器访问某个文件（比如图片、css文件、js文件）时，若该文件有缓存且尚未失效，那么浏览器会直接从缓存中读取该文件，即使服务器上该文件已经发生了更新。然而有些情况下，我们需要客户在页面使用该文件的最新版本，即便它在浏览器被缓存。</p>
+<p>解决思路：<br>1、每次文件在服务器有更新，上线之后告诉所有用户，要清除浏览器缓存才可以使用；<br>优点：简单省事  缺点：给运营及客户造成不便，容易挨揍<br>2、强制文件不使用缓存，每次浏览器访问都需要从服务器获取；<br>优点：开发成本低  缺点：页面访问速度下降；服务器压力增加<br>3、更聪明的办法</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2018/10/05/cache/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-04-17T21:58:47Z"
-              content="2021-04-17">
-          04-17
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/04/18/go-package3/" itemprop="url">
-            <span itemprop="name">Golang基础：源码与包（3）</span>
-          </a>
-      </div>
-
-    </header>
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
   </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-04-15T07:36:44Z"
-              content="2021-04-15">
-          04-15
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/04/15/go-package2/" itemprop="url">
-            <span itemprop="name">Golang基础：源码与包（2）</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-04-11T17:51:11Z"
-              content="2021-04-11">
-          04-11
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/04/12/go-package1/" itemprop="url">
-            <span itemprop="name">Golang基础：源码与包（1）</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-    <div class="collection-year">
-      <span class="collection-header">2019</span>
-    </div>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-08-18T18:31:10Z"
-              content="2019-08-18">
-          08-18
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2019/08/19/java-6/" itemprop="url">
-            <span itemprop="name">Java总结——类与对象</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-03-02T15:35:26Z"
-              content="2019-03-02">
-          03-02
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2019/03/02/java-5/" itemprop="url">
-            <span itemprop="name">Java总结——数据类型</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-    <div class="collection-year">
-      <span class="collection-header">2018</span>
-    </div>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2018-11-08T17:05:54Z"
-              content="2018-11-08">
-          11-08
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2018/11/09/java-4/" itemprop="url">
-            <span itemprop="name">Java漫谈（四）</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2018-11-05T10:29:00Z"
-              content="2018-11-05">
-          11-05
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2018/11/05/java-3/" itemprop="url">
-            <span itemprop="name">Java漫谈（三）</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2018-11-05T00:43:04Z"
-              content="2018-11-05">
-          11-05
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2018/11/05/java-2/" itemprop="url">
-            <span itemprop="name">Java 漫谈（二）</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2018-11-05T00:40:49Z"
-              content="2018-11-05">
-          11-05
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2018/11/05/java-1/" itemprop="url">
-            <span itemprop="name">Java漫谈（一）</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-    </div>
-  </div>
   
   
   
 
+
   
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
 
 
 

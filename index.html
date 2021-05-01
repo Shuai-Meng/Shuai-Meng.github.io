@@ -170,6 +170,79 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/04/18/go-package3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="name" content="孟帅">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="觅渡">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/18/go-package3/" class="post-title-link" itemprop="url">Golang基础：源码与包（3）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-04-17 21:58:47" itemprop="dateCreated datePublished" datetime="2021-04-17T21:58:47Z">2021-04-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-04-18 07:28:30" itemprop="dateModified" datetime="2021-04-18T07:28:30Z">2021-04-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="import关键字"><a href="#import关键字" class="headerlink" title="import关键字"></a>import关键字</h4>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/04/15/go-package2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -201,7 +274,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-18 08:43:39" itemprop="dateModified" datetime="2021-04-18T08:43:39Z">2021-04-18</time>
+                <time title="修改时间：2021-05-01 05:04:38" itemprop="dateModified" datetime="2021-05-01T05:04:38Z">2021-05-01</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -225,7 +298,7 @@
 
       
           <p>根据用途的不同，Golang源代码分为三类，分别是：命令源码文件、库源码文件和测试源码文件。</p>
-<h4 id="命令源码文件与“main”包"><a href="#命令源码文件与“main”包" class="headerlink" title="命令源码文件与“main”包"></a>命令源码文件与“main”包</h4><p>保存程序执行入口代码的文件，所谓“入口代码”就是main函数，类似于C语言或Java，Golang也采用了main函数作为程序执行的起点和入口。</p>
+<h4 id="命令源码文件与“main”包"><a href="#命令源码文件与“main”包" class="headerlink" title="命令源码文件与“main”包"></a>命令源码文件与“main”包</h4><p>命令源码文件是保存程序执行入口代码的文件，所谓“入口代码”就是main函数，类似于C语言或Java，Golang也采用了main函数作为程序执行的起点和入口。</p>
 <ol>
 <li><p>一个源码代码文件能够成为命令源码文件的条件有两个：package声明为“main”且包含“main”函数，代码如下：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">➜   cat main.go </span><br><span class="line">package main</span><br><span class="line"></span><br><span class="line">func main() &#123;&#125;</span><br></pre></td></tr></table></figure>
@@ -925,90 +998,11 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/05/cache/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/avatar.png">
-      <meta itemprop="name" content="孟帅">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="觅渡">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/10/05/cache/" class="post-title-link" itemprop="url">缓存与页面自动更新</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-10-05 00:40:49" itemprop="dateCreated datePublished" datetime="2018-10-05T00:40:49Z">2018-10-05</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-01 06:45:27" itemprop="dateModified" datetime="2021-04-01T06:45:27Z">2021-04-01</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/web/" itemprop="url" rel="index"><span itemprop="name">web</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="遇到的问题："><a href="#遇到的问题：" class="headerlink" title="遇到的问题："></a>遇到的问题：</h3><p>当浏览器访问某个文件（比如图片、css文件、js文件）时，若该文件有缓存且尚未失效，那么浏览器会直接从缓存中读取该文件，即使服务器上该文件已经发生了更新。然而有些情况下，我们需要客户在页面使用该文件的最新版本，即便它在浏览器被缓存。</p>
-<p>解决思路：<br>1、每次文件在服务器有更新，上线之后告诉所有用户，要清除浏览器缓存才可以使用；<br>优点：简单省事  缺点：给运营及客户造成不便，容易挨揍<br>2、强制文件不使用缓存，每次浏览器访问都需要从服务器获取；<br>优点：开发成本低  缺点：页面访问速度下降；服务器压力增加<br>3、更聪明的办法</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2018/10/05/cache/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
 
 
 
@@ -1075,7 +1069,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
