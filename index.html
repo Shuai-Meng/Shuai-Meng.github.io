@@ -170,6 +170,94 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/06/14/go-package4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="name" content="孟帅">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="觅渡">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/06/14/go-package4/" class="post-title-link" itemprop="url">Golang基础：源码与包（4）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-06-14 11:23:14" itemprop="dateCreated datePublished" datetime="2021-06-14T11:23:14Z">2021-06-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-08-23 15:15:35" itemprop="dateModified" datetime="2021-08-23T15:15:35Z">2021-08-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="依赖包管理问题"><a href="#依赖包管理问题" class="headerlink" title="依赖包管理问题"></a>依赖包管理问题</h4><p>在GOPATH机制下，所有的依赖包源码都放在$GOPATH/src目录下，无论是自己写的还是通过go get下载第三方的。</p>
+<p>当项目需要迁移的时候（比如本地开发完放到docker中运行），则要么把GOPATH目录下所有的依赖全部迁移（也可以慢慢挑项目实际需要用到的）；要么只迁移项目本身，然后多次执行go get，把需要的依赖包重新下载一遍。</p>
+<p>无论哪种方式，其实都很麻烦。而且go get下载的依赖包，其版本可能已经发生了变化，再次下载时，之前用到的API可能已经消失了。</p>
+<p>另外，当GOPATH下存在多个项目，但是其依赖同一个包的不同版本时，还会发生依赖冲突。</p>
+<p>总之，GOPATH是一种不够成熟的机制，它无法解决下面的问题：</p>
+<p>1、可重复编译，项目即使发生了迁移或者依赖包发生了变动，也能正常编译</p>
+<p>2、依赖冲突</p>
+<p>3、版本管理</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/06/14/go-package4/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/04/18/go-package3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -201,7 +289,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-06-13 10:45:38" itemprop="dateModified" datetime="2021-06-13T10:45:38Z">2021-06-13</time>
+                <time title="修改时间：2021-08-08 07:24:42" itemprop="dateModified" datetime="2021-08-08T07:24:42Z">2021-08-08</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -283,7 +371,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-15 17:26:59" itemprop="dateModified" datetime="2021-05-15T17:26:59Z">2021-05-15</time>
+                <time title="修改时间：2021-08-15 05:00:22" itemprop="dateModified" datetime="2021-08-15T05:00:22Z">2021-08-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -926,87 +1014,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/05/java-1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/avatar.png">
-      <meta itemprop="name" content="孟帅">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="觅渡">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/11/05/java-1/" class="post-title-link" itemprop="url">Java漫谈（一）</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-11-05 00:40:49" itemprop="dateCreated datePublished" datetime="2018-11-05T00:40:49Z">2018-11-05</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2018-11-08 13:17:53" itemprop="dateModified" datetime="2018-11-08T13:17:53Z">2018-11-08</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="Java以及编程语言"><a href="#Java以及编程语言" class="headerlink" title="Java以及编程语言"></a>Java以及编程语言</h4><p>&ensp;&ensp;&ensp;&ensp;狭义上说，java是一门计算机编程语言。这句话包含两个要点：<br>&ensp;&ensp;&ensp;&ensp;1. java是一门语言，这种语言可以被人类识别、书写；<br>&ensp;&ensp;&ensp;&ensp;2. 这门语言最终要应用到计算机。<br>&ensp;&ensp;&ensp;&ensp;关于第一点，java这门语言有着自己特殊的语法，非专业的人也许能看懂每个单词，但是单词连成一句话就不理解了，这需要训练；关于第二点，大家都知道计算机只认识0和1，不认识人类的语言，那么java程序从自然语言到最终执行，中间肯定需要经过一系列的转换，由自然语言转换成机器语言，这个过程一般叫做编译。<br><img src="java-1/lang.jpg"></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2018/11/05/java-1/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1078,7 +1085,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
