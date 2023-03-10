@@ -2,9 +2,10 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -13,14 +14,13 @@
 <link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
-  </script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha256-/4UQcSmErDzPCMAiuOiWPVVsNN2s3ZY/NsmXNcj0IFc=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-  <meta property="og:type" content="website">
+<script class="next-config" data-name="main" type="application/json">{"hostname":"yoursite.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.15.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta property="og:type" content="website">
 <meta property="og:title" content="觅渡">
 <meta property="og:url" content="http://yoursite.com/index.html">
 <meta property="og:site_name" content="觅渡">
@@ -28,20 +28,15 @@
 <meta property="article:author" content="孟帅">
 <meta name="twitter:card" content="summary">
 
+
 <link rel="canonical" href="http://yoursite.com/">
 
 
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : true,
-    isPost : false,
-    lang   : 'zh-CN'
-  };
-</script>
 
-  <title>觅渡</title>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"index.html","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>觅渡</title>
   
 
 
@@ -49,171 +44,221 @@
 
 
 
+
+<link rel="dns-prefetch" href="hexo-remark.vercel.app/">
   <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
 
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
   <div class="site-meta">
 
     <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
+      <i class="logo-line"></i>
       <h1 class="site-title">觅渡</h1>
-      <span class="logo-line-after"><i></i></span>
+      <i class="logo-line"></i>
     </a>
   </div>
 
   <div class="site-nav-right">
-    <div class="toggle popup-trigger">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
     </div>
   </div>
 </div>
 
 
 
-
 <nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
-
-  </li>
-        <li class="menu-item menu-item-sitemap">
-
-    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a>
-
-  </li>
-        <li class="menu-item menu-item-commonweal">
-
-    <a href="/404/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>公益 404</a>
-
-  </li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li><li class="menu-item menu-item-commonweal"><a href="/404/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>公益 404</a></li>
   </ul>
 </nav>
 
 
 
 
-</div>
-    </header>
+</header>
+        
+  
+  <aside class="sidebar">
 
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="孟帅"
+      src="/uploads/avatar.png">
+  <p class="site-author-name" itemprop="name">孟帅</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Shuai-Meng" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Shuai-Meng" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/u012668018" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;u012668018" rel="noopener me" target="_blank"><i class="fab fa-globe fa-fw"></i>CSDN</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://zhuanlan.zhihu.com/c_1042806937905266688" title="知乎专栏 → https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;c_1042806937905266688" rel="noopener me" target="_blank"><i class="fab fa-globe fa-fw"></i>知乎专栏</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.toutiao.com/c/user/5516059911//#mid=1616277150072835" title="头条号 → https:&#x2F;&#x2F;www.toutiao.com&#x2F;c&#x2F;user&#x2F;5516059911&#x2F;&#x2F;#mid&#x3D;1616277150072835" rel="noopener me" target="_blank"><i class="fab fa-globe fa-fw"></i>头条号</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.jianshu.com/u/6022549b794c" title="简书 → https:&#x2F;&#x2F;www.jianshu.com&#x2F;u&#x2F;6022549b794c" rel="noopener me" target="_blank"><i class="fab fa-globe fa-fw"></i>简书</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/mengshuaicalendr@gmail.com" title="E-Mail → mengshuaicalendr@gmail.com" rel="noopener me"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
   </div>
 
+        </div>
+      </div>
+    </div>
 
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
+    
+  </aside>
 
-          <div class="content index posts-expand">
-            
-      
+
+    </div>
+
+    <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/08/22/go-package5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/avatar.png">
       <meta itemprop="name" content="孟帅">
-      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="觅渡">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 觅渡">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/08/22/go-package5/" class="post-title-link" itemprop="url">Go Modules(1)</a>
+          <a href="/2021/08/22/go-package5/" class="post-title-link" itemprop="url">Go Modules(1)</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-08-22 13:50:47" itemprop="dateCreated datePublished" datetime="2021-08-22T13:50:47Z">2021-08-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-01 02:49:45" itemprop="dateModified" datetime="2021-10-01T02:49:45Z">2021-10-01</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
-                </span>
-            </span>
+      <time title="创建时间：2021-08-22 13:50:47" itemprop="dateCreated datePublished" datetime="2021-08-22T13:50:47Z">2021-08-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2021-10-01 02:49:45" itemprop="dateModified" datetime="2021-10-01T02:49:45Z">2021-10-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+        </span>
+    </span>
 
-          
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2021/08/22/go-package5/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2021/08/22/go-package5/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.2k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>4 分钟</span>
+    </span>
+</div>
 
         </div>
       </header>
@@ -222,8 +267,6 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
           <h4 id="版本冲突与菱形依赖"><a href="#版本冲突与菱形依赖" class="headerlink" title="版本冲突与菱形依赖"></a>版本冲突与菱形依赖</h4><p>假设有两个项目A和B，它们都依赖了C，但是对C的版本要求不一致，如果C的代码存放在GOPATH中，显然只能存一个C的版本，于是版本冲突了。</p>
 <p>上面的情况如果只有一个项目就没问题，但还有更复杂的情形：假设有个项目D依赖了C和B，B和C又同时依赖了A，那么A的版本就更难以协调了，这也就是所谓的菱形依赖。如下图所示：</p>
 <p><img src="https://github.com/Shuai-Meng/blog-front/blob/master/source/uploads/dep.png"></p>
@@ -242,62 +285,104 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/06/14/go-package4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/avatar.png">
       <meta itemprop="name" content="孟帅">
-      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="觅渡">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 觅渡">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/06/14/go-package4/" class="post-title-link" itemprop="url">Golang基础：源码与包（4）</a>
+          <a href="/2021/06/14/go-package4/" class="post-title-link" itemprop="url">Golang基础：源码与包（4）</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-06-14 11:23:14" itemprop="dateCreated datePublished" datetime="2021-06-14T11:23:14Z">2021-06-14</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-08-29 09:44:53" itemprop="dateModified" datetime="2021-08-29T09:44:53Z">2021-08-29</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
-                </span>
-            </span>
+      <time title="创建时间：2021-06-14 11:23:14" itemprop="dateCreated datePublished" datetime="2021-06-14T11:23:14Z">2021-06-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2021-08-29 09:44:53" itemprop="dateModified" datetime="2021-08-29T09:44:53Z">2021-08-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+        </span>
+    </span>
 
-          
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2021/06/14/go-package4/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2021/06/14/go-package4/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.1k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>4 分钟</span>
+    </span>
+</div>
 
         </div>
       </header>
@@ -306,9 +391,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="依赖包管理问题"><a href="#依赖包管理问题" class="headerlink" title="依赖包管理问题"></a>依赖包管理问题</h4><p>在GOPATH机制下，所有的依赖包源码都放在$GOPATH/src目录下，无论是自己写的还是通过go get下载第三方的。</p>
+          <h4 id="依赖包管理问题"><a href="#依赖包管理问题" class="headerlink" title="依赖包管理问题"></a>依赖包管理问题</h4><p>在GOPATH机制下，所有的依赖包源码都放在$GOPATH&#x2F;src目录下，无论是自己写的还是通过go get下载第三方的。</p>
 <p>当项目需要迁移的时候（比如本地开发完放到docker中运行），则要么把GOPATH目录下所有的依赖全部迁移（也可以慢慢挑项目实际需要用到的）；要么只迁移项目本身，然后多次执行go get，把需要的依赖包重新下载一遍。</p>
 <p>无论哪种方式，其实都很麻烦。而且go get下载的依赖包，其版本可能已经发生了变化，再次下载时，之前用到的API可能已经消失了。</p>
 <p>另外，当GOPATH下存在多个项目，但是其依赖同一个包的不同版本时，还会发生依赖冲突。</p>
@@ -330,62 +413,104 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/04/18/go-package3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/avatar.png">
       <meta itemprop="name" content="孟帅">
-      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="觅渡">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 觅渡">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/18/go-package3/" class="post-title-link" itemprop="url">Golang基础：源码与包（3）</a>
+          <a href="/2021/04/18/go-package3/" class="post-title-link" itemprop="url">Golang基础：源码与包（3）</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-04-17 21:58:47" itemprop="dateCreated datePublished" datetime="2021-04-17T21:58:47Z">2021-04-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-08-08 07:24:42" itemprop="dateModified" datetime="2021-08-08T07:24:42Z">2021-08-08</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
-                </span>
-            </span>
+      <time title="创建时间：2021-04-17 21:58:47" itemprop="dateCreated datePublished" datetime="2021-04-17T21:58:47Z">2021-04-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2021-08-08 07:24:42" itemprop="dateModified" datetime="2021-08-08T07:24:42Z">2021-08-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+        </span>
+    </span>
 
-          
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2021/04/18/go-package3/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2021/04/18/go-package3/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.8k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>7 分钟</span>
+    </span>
+</div>
 
         </div>
       </header>
@@ -394,8 +519,6 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
           <h4 id="import关键字"><a href="#import关键字" class="headerlink" title="import关键字"></a>import关键字</h4><p>前面的文章中提到，包的概念的诞生是为了模块化。把一个项目封装成一个个相对独立的模块，使之互相隔离，然后又互相合作，可以明显提升项目的可读性、可维护性以及便于开发。在Golang中，模块之间的隔离是用“package”关键字做到的，而模块之间的合作，则需要“import”关键字。</p>
 <p>“import”的意思是“引入”，当一个模块需要用到另一个模块的功能时，可以使用“import”关键字引用另一个模块。</p>
           <!--noindex-->
@@ -412,62 +535,104 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/04/15/go-package2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/avatar.png">
       <meta itemprop="name" content="孟帅">
-      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="觅渡">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 觅渡">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/15/go-package2/" class="post-title-link" itemprop="url">Golang基础：源码与包（2）</a>
+          <a href="/2021/04/15/go-package2/" class="post-title-link" itemprop="url">Golang基础：源码与包（2）</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-04-15 07:36:44" itemprop="dateCreated datePublished" datetime="2021-04-15T07:36:44Z">2021-04-15</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-08-15 05:00:22" itemprop="dateModified" datetime="2021-08-15T05:00:22Z">2021-08-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
-                </span>
-            </span>
+      <time title="创建时间：2021-04-15 07:36:44" itemprop="dateCreated datePublished" datetime="2021-04-15T07:36:44Z">2021-04-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2021-08-15 05:00:22" itemprop="dateModified" datetime="2021-08-15T05:00:22Z">2021-08-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+        </span>
+    </span>
 
-          
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2021/04/15/go-package2/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2021/04/15/go-package2/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.5k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>9 分钟</span>
+    </span>
+</div>
 
         </div>
       </header>
@@ -476,8 +641,6 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
           <p>根据用途的不同，Golang源代码分为三类，分别是：命令源码文件、库源码文件和测试源码文件。</p>
 <h4 id="命令源码文件与“main”包"><a href="#命令源码文件与“main”包" class="headerlink" title="命令源码文件与“main”包"></a>命令源码文件与“main”包</h4><p>命令源码文件是保存程序执行入口代码的文件，所谓“入口代码”就是main函数，类似于C语言或Java，Golang也采用了main函数作为程序执行的起点和入口。</p>
 <ol>
@@ -485,7 +648,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">➜   cat main.go </span><br><span class="line">package main</span><br><span class="line"></span><br><span class="line">func main() &#123;&#125;</span><br></pre></td></tr></table></figure>
 
 <p>对于命令源码文件，”go build“在编译之后还会进行链接等动作，最终生成一个可执行文件或者命令，运行这个命令或可执行文件，就代表运行写好的程序。代码如下：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">➜   go build main.go </span><br><span class="line">➜   ls</span><br><span class="line">main    main.go</span><br><span class="line">➜   ./main </span><br><span class="line">➜   </span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">➜   go build main.go </span><br><span class="line">➜   <span class="built_in">ls</span></span><br><span class="line">main    main.go</span><br><span class="line">➜   ./main </span><br><span class="line">➜   </span><br></pre></td></tr></table></figure>
 
 <p>因为这个程序只有一个空的main函数，什么都没有做，所以执行之后什么都没发生。</p>
           <!--noindex-->
@@ -502,62 +665,104 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/04/12/go-package1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/avatar.png">
       <meta itemprop="name" content="孟帅">
-      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="觅渡">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 觅渡">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/12/go-package1/" class="post-title-link" itemprop="url">Golang基础：源码与包（1）</a>
+          <a href="/2021/04/12/go-package1/" class="post-title-link" itemprop="url">Golang基础：源码与包（1）</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-04-11 17:51:11" itemprop="dateCreated datePublished" datetime="2021-04-11T17:51:11Z">2021-04-11</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-17 14:54:04" itemprop="dateModified" datetime="2021-04-17T14:54:04Z">2021-04-17</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
-                </span>
-            </span>
+      <time title="创建时间：2021-04-11 17:51:11" itemprop="dateCreated datePublished" datetime="2021-04-11T17:51:11Z">2021-04-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2021-04-17 14:54:04" itemprop="dateModified" datetime="2021-04-17T14:54:04Z">2021-04-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+        </span>
+    </span>
 
-          
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2021/04/12/go-package1/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2021/04/12/go-package1/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.8k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>7 分钟</span>
+    </span>
+</div>
 
         </div>
       </header>
@@ -566,8 +771,6 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
           <h4 id="为什么要引入“包”的概念？"><a href="#为什么要引入“包”的概念？" class="headerlink" title="为什么要引入“包”的概念？"></a>为什么要引入“包”的概念？</h4><ol>
 <li><p>任何一门设计精良的编程语言，其编写出来的程序必然是可以模块化的。模块化的好处有两个：一是分工明确，互相隔离，容易看懂及排查问题；二是方便复用，减少重复建设，提高开发效率。</p>
 <p>“包”就是Golang用来模块化的工具，一个“包”就是一个独立的、可复用的模块，一个Golang程序是由多个互相配合的包组成的。尽管Golang中最小的逻辑单元是函数，但以函数作为模块是不合理的：一个复杂的模块会包含几个不同的功能接口，不可能放在同一个函数里面实现；即使是模块只有一个接口，如果接口功能复杂，只用一个函数实现，可读性也不会好。总而言之，函数无法承载起模块的角色，只有用“包”将许多函数封装到一起，才能起到模块的作用。</p>
@@ -590,56 +793,98 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/04/01/redis-practice/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/avatar.png">
       <meta itemprop="name" content="孟帅">
-      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="觅渡">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 觅渡">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/01/redis-practice/" class="post-title-link" itemprop="url">Redis实战中遇到的一些问题</a>
+          <a href="/2021/04/01/redis-practice/" class="post-title-link" itemprop="url">Redis实战中遇到的一些问题</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
 
-              <time title="创建时间：2021-04-01 14:33:44 / 修改时间：08:16:12" itemprop="dateCreated datePublished" datetime="2021-04-01T14:33:44Z">2021-04-01</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/middleware/" itemprop="url" rel="index"><span itemprop="name">middleware</span></a>
-                </span>
-            </span>
+      <time title="创建时间：2021-04-01 14:33:44 / 修改时间：08:16:12" itemprop="dateCreated datePublished" datetime="2021-04-01T14:33:44Z">2021-04-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/middleware/" itemprop="url" rel="index"><span itemprop="name">middleware</span></a>
+        </span>
+    </span>
 
-          
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2021/04/01/redis-practice/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2021/04/01/redis-practice/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.3k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>8 分钟</span>
+    </span>
+</div>
 
         </div>
       </header>
@@ -648,8 +893,6 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
           <h4 id="Redis分布式锁"><a href="#Redis分布式锁" class="headerlink" title="Redis分布式锁"></a>Redis分布式锁</h4><p>无论使用哪种技术组件，做分布式锁都要满足四个基本要求：</p>
 <ol>
 <li><p>互斥性：同一个时刻，只能又一个客户端获取到锁，在它解锁之前，其他客户端无法加锁；</p>
@@ -673,62 +916,104 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/19/java-6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/avatar.png">
       <meta itemprop="name" content="孟帅">
-      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="觅渡">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 觅渡">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/08/19/java-6/" class="post-title-link" itemprop="url">Java总结——类与对象</a>
+          <a href="/2019/08/19/java-6/" class="post-title-link" itemprop="url">Java总结——类与对象</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-08-18 18:31:10" itemprop="dateCreated datePublished" datetime="2019-08-18T18:31:10Z">2019-08-18</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-30 00:29:28" itemprop="dateModified" datetime="2021-03-30T00:29:28Z">2021-03-30</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
-                </span>
-            </span>
+      <time title="创建时间：2019-08-18 18:31:10" itemprop="dateCreated datePublished" datetime="2019-08-18T18:31:10Z">2019-08-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2021-03-30 00:29:28" itemprop="dateModified" datetime="2021-03-30T00:29:28Z">2021-03-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+        </span>
+    </span>
 
-          
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2019/08/19/java-6/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2019/08/19/java-6/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>5.2k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>19 分钟</span>
+    </span>
+</div>
 
         </div>
       </header>
@@ -737,12 +1022,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="基本数据类型与对象"><a href="#基本数据类型与对象" class="headerlink" title="基本数据类型与对象"></a>基本数据类型与对象</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Java是面向对象的语言，所以光有基本数据类型是不够的，对象才是主角。基本数据类型的存在，一方面是向计算机本身物理结构的妥协，另一方面是为了构造对象。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;编程语言所面对的问题和事物是复杂的，多维度的，需要用一个组合体来囊括方方面面，各个角度。比如描述一个人，他有姓名，年龄，性别，住址，身高，体重等等，这么多信息，不是哪个基本数据类型可以表示的。可以理解为，每个基本数据类型都是一维的，只有把他们组合起来，才能表示多维的事物。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;基本数据类型，说穿了其实就两类：数字和文字。除了char类型表示文字，其他的类型可以视为数字。在人类的自然语言中，其实描述事物不外乎也就两个手段：文字和数字——文字描述“质”，数字描述“量”。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;对象则可以包含二者,它是现实中的事物在计算机中的映射。但是对象可以映射的不仅仅是具体事物，还可以是抽象的事物，比如一个查询。只要这个事物可以被描述，或者可度量。对象在计算机中代表了世界的一切，当编程语言可以在计算机中描述一切时，就可以模拟它们的运行。</p>
-<h3 id="类与对象"><a href="#类与对象" class="headerlink" title="类与对象"></a>类与对象</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;类与对象的关系，就是基本数据类型与其值之间的关系，比如</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int a &#x3D; 5；</span><br></pre></td></tr></table></figure>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;变量a的类型是int，值是5。类型代表一类事物，int代表着整数，5只是整数中的一个而已，还有很多其他的整数值。类，是新创造出来的类型，也代表一类事物。一个该类型的对象，也只是类型中所有值中的一个而已。同一类型的对象之间，他们的属性个数和名称必然一样，但是每个属性的值可能不一样。属性的个数及名称决定了“质”，而属性的具体值决定了“量”，也可以称为状态。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;从衍生的角度看，创建了类，然后由这个模板批量制造对象；从归纳的角度，存在一批相似的对象，然后将其抽象成了类，代表这批对象公共的、共同的特征。</p>
+          <h3 id="基本数据类型与对象"><a href="#基本数据类型与对象" class="headerlink" title="基本数据类型与对象"></a>基本数据类型与对象</h3><p>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Java是面向对象的语言，所以光有基本数据类型是不够的，对象才是主角。基本数据类型的存在，一方面是向计算机本身物理结构的妥协，另一方面是为了构造对象。<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;编程语言所面对的问题和事物是复杂的，多维度的，需要用一个组合体来囊括方方面面，各个角度。比如描述一个人，他有姓名，年龄，性别，住址，身高，体重等等，这么多信息，不是哪个基本数据类型可以表示的。可以理解为，每个基本数据类型都是一维的，只有把他们组合起来，才能表示多维的事物。<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;基本数据类型，说穿了其实就两类：数字和文字。除了char类型表示文字，其他的类型可以视为数字。在人类的自然语言中，其实描述事物不外乎也就两个手段：文字和数字——文字描述“质”，数字描述“量”。<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;对象则可以包含二者,它是现实中的事物在计算机中的映射。但是对象可以映射的不仅仅是具体事物，还可以是抽象的事物，比如一个查询。只要这个事物可以被描述，或者可度量。对象在计算机中代表了世界的一切，当编程语言可以在计算机中描述一切时，就可以模拟它们的运行。</p>
+<h3 id="类与对象"><a href="#类与对象" class="headerlink" title="类与对象"></a>类与对象</h3><p>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;类与对象的关系，就是基本数据类型与其值之间的关系，比如</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int a = 5；</span><br></pre></td></tr></table></figure>
+<p>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;变量a的类型是int，值是5。类型代表一类事物，int代表着整数，5只是整数中的一个而已，还有很多其他的整数值。类，是新创造出来的类型，也代表一类事物。一个该类型的对象，也只是类型中所有值中的一个而已。同一类型的对象之间，他们的属性个数和名称必然一样，但是每个属性的值可能不一样。属性的个数及名称决定了“质”，而属性的具体值决定了“量”，也可以称为状态。<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;从衍生的角度看，创建了类，然后由这个模板批量制造对象；从归纳的角度，存在一批相似的对象，然后将其抽象成了类，代表这批对象公共的、共同的特征。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2019/08/19/java-6/#more" rel="contents">
@@ -757,62 +1040,104 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/02/java-5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/avatar.png">
       <meta itemprop="name" content="孟帅">
-      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="觅渡">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 觅渡">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/03/02/java-5/" class="post-title-link" itemprop="url">Java总结——数据类型</a>
+          <a href="/2019/03/02/java-5/" class="post-title-link" itemprop="url">Java总结——数据类型</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-03-02 15:35:26" itemprop="dateCreated datePublished" datetime="2019-03-02T15:35:26Z">2019-03-02</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-30 00:29:28" itemprop="dateModified" datetime="2021-03-30T00:29:28Z">2021-03-30</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
-                </span>
-            </span>
+      <time title="创建时间：2019-03-02 15:35:26" itemprop="dateCreated datePublished" datetime="2019-03-02T15:35:26Z">2019-03-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2021-03-30 00:29:28" itemprop="dateModified" datetime="2021-03-30T00:29:28Z">2021-03-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+        </span>
+    </span>
 
-          
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2019/03/02/java-5/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2019/03/02/java-5/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>5.2k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>19 分钟</span>
+    </span>
+</div>
 
         </div>
       </header>
@@ -821,15 +1146,13 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="基本数据类型与引用类型"><a href="#基本数据类型与引用类型" class="headerlink" title="基本数据类型与引用类型"></a>基本数据类型与引用类型</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Java是面向对象的语言，在java中一切都可以视为对象。然而，为什么却会引入基本数据类型这样一个明显不是对象的元素呢？个人觉得有两个方面的原因：一是逻辑上的必然结果；二是对计算机本身结构的妥协。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;面向对象编程的基本原则：一切都是对象；对象可以分解为对象（我胡说的，没有验证过）。这意味着，对象的组成成分也是对象，每个对象都是由其他对象构成的。然而在实际编程时，却是自底向上的构建更复杂的对象，而不是自顶向下的逐步分解对象。但是在这个规则下，却没办法找到这样底层对象，因为它还可以分解为更底层的。这样，在逻辑上就陷入了寻找最细粒度对象的死循环中。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;解决办法就是破坏规则：</p>
+          <h3 id="基本数据类型与引用类型"><a href="#基本数据类型与引用类型" class="headerlink" title="基本数据类型与引用类型"></a>基本数据类型与引用类型</h3><p>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Java是面向对象的语言，在java中一切都可以视为对象。然而，为什么却会引入基本数据类型这样一个明显不是对象的元素呢？个人觉得有两个方面的原因：一是逻辑上的必然结果；二是对计算机本身结构的妥协。<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;面向对象编程的基本原则：一切都是对象；对象可以分解为对象（我胡说的，没有验证过）。这意味着，对象的组成成分也是对象，每个对象都是由其他对象构成的。然而在实际编程时，却是自底向上的构建更复杂的对象，而不是自顶向下的逐步分解对象。但是在这个规则下，却没办法找到这样底层对象，因为它还可以分解为更底层的。这样，在逻辑上就陷入了寻找最细粒度对象的死循环中。</p>
+<p>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;解决办法就是破坏规则：</p>
 <ol>
 <li>引入一种不可分割的元素，它不是对象，并且最“底层”的对象完全由这种元素构成，这样就破坏了规则一；</li>
 <li>或者使一些对象不可以继续分割，其他对象都有这种对象构建而成，这就破坏了规则二。两种方案的共同点是终止“对象可以无限分割”这个死循环。</li>
 </ol>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;显然Java采用了第一种方案，在语法中加入了基本数据类型这种非对象元素。Java的前辈，SmallTalk语言采用了方案二。表面上看，SmallTalk中似乎一切都是对象了，被称为“纯面向对象”语言。然而，这是构建在一种特殊对象基础之上的，这些基础对象是否真的符合对象的定义值得怀疑。其他所谓“纯面向对象”的语言同理。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Java采用方案一的另一个原因是受制于计算机的结构。长期实践中，编程领域基本上形成了一些基本的数据类型，如int，float，char等，这些基本数据类型可以被计算机很好的支持，甚至计算机中的很多指令都是和这些数据类型耦合的。所以任何一门编程语言，都逃脱不了基本数据类型的限制。Java在此基础上，规定了8种基本数据类型，作为所有对象的基础；当然java的基本数据类型是与平台无关的，屏蔽了底层细节，比如int类型无论在哪种机器上对外表现都是四个字节。其他“纯面向对象”的语言，最底层对象本质上就是这些基本数据类型，只不过稍微加了一层包装，让其看起来像个对象而已。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Java为什么没采用方案二呢？这是考虑到了执行效率，直接使用计算机原生的数据类型，比将其包装成对象运算要快得多——因为原生数据类型可以直接保存到栈上，而对象则保存在堆上，通过保存到栈上的指针或引用去获取——显然获取对象数据因为绕了一个弯，而损失了一部分效率。</p>
+<p>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;显然Java采用了第一种方案，在语法中加入了基本数据类型这种非对象元素。Java的前辈，SmallTalk语言采用了方案二。表面上看，SmallTalk中似乎一切都是对象了，被称为“纯面向对象”语言。然而，这是构建在一种特殊对象基础之上的，这些基础对象是否真的符合对象的定义值得怀疑。其他所谓“纯面向对象”的语言同理。<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Java采用方案一的另一个原因是受制于计算机的结构。长期实践中，编程领域基本上形成了一些基本的数据类型，如int，float，char等，这些基本数据类型可以被计算机很好的支持，甚至计算机中的很多指令都是和这些数据类型耦合的。所以任何一门编程语言，都逃脱不了基本数据类型的限制。Java在此基础上，规定了8种基本数据类型，作为所有对象的基础；当然java的基本数据类型是与平台无关的，屏蔽了底层细节，比如int类型无论在哪种机器上对外表现都是四个字节。其他“纯面向对象”的语言，最底层对象本质上就是这些基本数据类型，只不过稍微加了一层包装，让其看起来像个对象而已。<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Java为什么没采用方案二呢？这是考虑到了执行效率，直接使用计算机原生的数据类型，比将其包装成对象运算要快得多——因为原生数据类型可以直接保存到栈上，而对象则保存在堆上，通过保存到栈上的指针或引用去获取——显然获取对象数据因为绕了一个弯，而损失了一部分效率。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2019/03/02/java-5/#more" rel="contents">
@@ -844,62 +1167,104 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/09/java-4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/avatar.png">
       <meta itemprop="name" content="孟帅">
-      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="觅渡">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 觅渡">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/11/09/java-4/" class="post-title-link" itemprop="url">Java漫谈（四）</a>
+          <a href="/2018/11/09/java-4/" class="post-title-link" itemprop="url">Java漫谈（四）</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2018-11-08 17:05:54" itemprop="dateCreated datePublished" datetime="2018-11-08T17:05:54Z">2018-11-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-03-10 01:54:33" itemprop="dateModified" datetime="2019-03-10T01:54:33Z">2019-03-10</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
-                </span>
-            </span>
+      <time title="创建时间：2018-11-08 17:05:54" itemprop="dateCreated datePublished" datetime="2018-11-08T17:05:54Z">2018-11-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2019-03-10 01:54:33" itemprop="dateModified" datetime="2019-03-10T01:54:33Z">2019-03-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+        </span>
+    </span>
 
-          
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2018/11/09/java-4/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2018/11/09/java-4/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.9k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>11 分钟</span>
+    </span>
+</div>
 
         </div>
       </header>
@@ -908,10 +1273,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="命名空间"><a href="#命名空间" class="headerlink" title="命名空间"></a>命名空间</h3><h4 id="包名"><a href="#包名" class="headerlink" title="包名"></a>包名</h4><p>&ensp;&ensp;&ensp;&ensp;Java代码里面的类写多了，自然会遇到重名的问题，尤其是涉及到多人协作的时候。比如，两个人都想给自己的类命名为“Apple”，那么第三个人调用“Apple”这个类的时候，到底调的是哪个呢？<br>&ensp;&ensp;&ensp;&ensp;这就是命名冲突，Java给出的解决方案是引入包名，也就给类名加个前缀，如：com.Demo2。Demo2类的包名就是com，类名和包名之间用点号隔开。这时候“类名”就有了两个不同版本的叫法：全限定类名和非限定类名。前者指的是加上前缀之后的全名，后者就是平时所说的类名，也就是class关键字后面的名字。语法上，使用package关键字来单独声明包名，而不是将全限定类名放在class关键后面。如下所示：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+          <h3 id="命名空间"><a href="#命名空间" class="headerlink" title="命名空间"></a>命名空间</h3><h4 id="包名"><a href="#包名" class="headerlink" title="包名"></a>包名</h4><p>&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;Java代码里面的类写多了，自然会遇到重名的问题，尤其是涉及到多人协作的时候。比如，两个人都想给自己的类命名为“Apple”，那么第三个人调用“Apple”这个类的时候，到底调的是哪个呢？<br>&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;这就是命名冲突，Java给出的解决方案是引入包名，也就给类名加个前缀，如：com.Demo2。Demo2类的包名就是com，类名和包名之间用点号隔开。这时候“类名”就有了两个不同版本的叫法：全限定类名和非限定类名。前者指的是加上前缀之后的全名，后者就是平时所说的类名，也就是class关键字后面的名字。语法上，使用package关键字来单独声明包名，而不是将全限定类名放在class关键后面。如下所示：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Demo</span> &#123;&#125;</span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2018/11/09/java-4/#more" rel="contents">
@@ -926,62 +1289,104 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/05/java-3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/avatar.png">
       <meta itemprop="name" content="孟帅">
-      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="觅渡">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 觅渡">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/11/05/java-3/" class="post-title-link" itemprop="url">Java漫谈（三）</a>
+          <a href="/2018/11/05/java-3/" class="post-title-link" itemprop="url">Java漫谈（三）</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2018-11-05 10:29:00" itemprop="dateCreated datePublished" datetime="2018-11-05T10:29:00Z">2018-11-05</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-03-10 01:54:33" itemprop="dateModified" datetime="2019-03-10T01:54:33Z">2019-03-10</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
-                </span>
-            </span>
+      <time title="创建时间：2018-11-05 10:29:00" itemprop="dateCreated datePublished" datetime="2018-11-05T10:29:00Z">2018-11-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2019-03-10 01:54:33" itemprop="dateModified" datetime="2019-03-10T01:54:33Z">2019-03-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+        </span>
+    </span>
 
-          
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2018/11/05/java-3/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2018/11/05/java-3/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.1k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>8 分钟</span>
+    </span>
+</div>
 
         </div>
       </header>
@@ -990,9 +1395,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h4><p>&ensp;&ensp;&ensp;&ensp;接上一篇文章中提到的问题：为什么java要求每个.java文件中最多只能有一个public类，并且文件名称还要和这个public类的名字保持一致呢？这个问题其实可以分为三个子问题：<br>&ensp;&ensp;&ensp;&ensp;1. 为什么要以类名来命名.java文件？<br>&ensp;&ensp;&ensp;&ensp;2. 为什么要以public类来命名.java文件？<br>&ensp;&ensp;&ensp;&ensp;3. 为什么一个.java文件只能存在一个public类？<br>&ensp;&ensp;&ensp;&ensp;第三个问题略显多余，因为一旦确认必须要以public类名来命名一个.java文件，那么显然这个文件只能存在一个public类，不然以哪个类来命名呢？可以肯定的是，这与java编译器的设计是有关系的。那是不是现在去扒一下javac的源代码？逻辑上讲，这是最彻底的办法。然而时间有限，这里采用取巧的办法——从javac的行为去推测可能的内部机理。</p>
+          <h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h4><p>&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;接上一篇文章中提到的问题：为什么java要求每个.java文件中最多只能有一个public类，并且文件名称还要和这个public类的名字保持一致呢？这个问题其实可以分为三个子问题：<br>&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;1. 为什么要以类名来命名.java文件？<br>&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;2. 为什么要以public类来命名.java文件？<br>&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;3. 为什么一个.java文件只能存在一个public类？<br>&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;第三个问题略显多余，因为一旦确认必须要以public类名来命名一个.java文件，那么显然这个文件只能存在一个public类，不然以哪个类来命名呢？可以肯定的是，这与java编译器的设计是有关系的。那是不是现在去扒一下javac的源代码？逻辑上讲，这是最彻底的办法。然而时间有限，这里采用取巧的办法——从javac的行为去推测可能的内部机理。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2018/11/05/java-3/#more" rel="contents">
@@ -1007,143 +1410,29 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
-  
-  
+</div>
 
 
-  
+
+
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
-
-
-          </div>
-          
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
-
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="孟帅"
-      src="/uploads/avatar.png">
-  <p class="site-author-name" itemprop="name">孟帅</p>
-  <div class="site-description" itemprop="description"></div>
 </div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">13</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">3</span>
-        <span class="site-state-item-name">分类</span>
-      </div>
-      <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">4</span>
-        <span class="site-state-item-name">标签</span>
-      </div>
-  </nav>
-</div>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-        <a href="https://github.com/ShuaiMeng" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ShuaiMeng" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="mailto:mengshuaicalendr@gmail.com" title="EMail → mailto:mengshuaicalendr@gmail.com" rel="noopener" target="_blank"><i class="fab fa-envelope fa-fw"></i>EMail</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://blog.csdn.net/u012668018" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;u012668018" rel="noopener" target="_blank"><i class="fab fa-globe fa-fw"></i>CSDN</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://zhuanlan.zhihu.com/c_1042806937905266688" title="知乎专栏 → https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;c_1042806937905266688" rel="noopener" target="_blank"><i class="fab fa-globe fa-fw"></i>知乎专栏</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://www.toutiao.com/c/user/5516059911//#mid=1616277150072835" title="头条号 → https:&#x2F;&#x2F;www.toutiao.com&#x2F;c&#x2F;user&#x2F;5516059911&#x2F;&#x2F;#mid&#x3D;1616277150072835" rel="noopener" target="_blank"><i class="fab fa-globe fa-fw"></i>头条号</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://www.jianshu.com/u/6022549b794c" title="简书 → https:&#x2F;&#x2F;www.jianshu.com&#x2F;u&#x2F;6022549b794c" rel="noopener" target="_blank"><i class="fab fa-globe fa-fw"></i>简书</a>
-      </span>
-  </div>
-  <div class="cc-license motion-element" itemprop="license">
-    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
-  </div>
+  </main>
 
+  <footer class="footer">
+    <div class="footer-inner">
 
-
-      </div>
-
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-        
 
 <div class="copyright">
-  
   &copy; 
   <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
@@ -1151,36 +1440,60 @@
   </span>
   <span class="author" itemprop="copyrightHolder">shuai.meng</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">31k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:53</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div><!-- 站点运行时间 -->
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("10/01/2018 17:38:00");//在此处修改你的建站时间
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = "<br>本站已安全运行 "+dnum+" 天 "; 
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+    } 
+setInterval("createtime()",250);
+</script>
+
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
   </div>
 
-        
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
 
-
-
-
-
-
-
-
-      </div>
-    </footer>
-  </div>
 
   
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
 
-<script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
-
-
-<script src="/js/schemes/pisces.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
+  
 
 
 
@@ -1190,20 +1503,17 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"hexo-remark.vercel.app/","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":false,"locale":{"placeholder":"疑义相与析，畅所欲言，不登录也没关系哒"},"avatar":"mm","meta":["nick","mail"],"pageSize":10,"visitor":true,"comment_count":true,"requiredFields":["nick"],"libUrl":"https://unpkg.com/@waline/client@v2/dist/waline.js","login":"enable","el":"#waline","comment":true,"path":"/"}</script>
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() =>
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => 
+    Waline.init(Object.assign({}, CONFIG.waline,{ el: document.querySelector(CONFIG.waline.el) }))
+  );
+});
+</script>
 
 </body>
 </html>
