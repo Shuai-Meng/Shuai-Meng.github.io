@@ -18,12 +18,12 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha256-/4UQcSmErDzPCMAiuOiWPVVsNN2s3ZY/NsmXNcj0IFc=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"yoursite.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.15.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.shuaimeng.top","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.15.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="依赖包管理问题在GOPATH机制下，所有的依赖包源码都放在$GOPATH&#x2F;src目录下，无论是自己写的还是通过go get下载第三方的。 当项目需要迁移的时候（比如本地开发完放到docker中运行），则要么把GOPATH目录下所有的依赖全部迁移（也可以慢慢挑项目实际需要用到的）；要么只迁移项目本身，然后多次执行go get，把需要的依赖包重新下载一遍。 无论哪种方式，其实都很麻烦。而且g">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Golang基础：源码与包（4）">
-<meta property="og:url" content="http://yoursite.com/2021/06/14/go-package4/index.html">
+<meta property="og:url" content="http://blog.shuaimeng.top/2021/06/14/go-package4/index.html">
 <meta property="og:site_name" content="觅渡">
 <meta property="og:description" content="依赖包管理问题在GOPATH机制下，所有的依赖包源码都放在$GOPATH&#x2F;src目录下，无论是自己写的还是通过go get下载第三方的。 当项目需要迁移的时候（比如本地开发完放到docker中运行），则要么把GOPATH目录下所有的依赖全部迁移（也可以慢慢挑项目实际需要用到的）；要么只迁移项目本身，然后多次执行go get，把需要的依赖包重新下载一遍。 无论哪种方式，其实都很麻烦。而且g">
 <meta property="og:locale" content="zh_CN">
@@ -34,11 +34,11 @@
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://yoursite.com/2021/06/14/go-package4/">
+<link rel="canonical" href="http://blog.shuaimeng.top/2021/06/14/go-package4/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://yoursite.com/2021/06/14/go-package4/","path":"2021/06/14/go-package4/","title":"Golang基础：源码与包（4）"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://blog.shuaimeng.top/2021/06/14/go-package4/","path":"2021/06/14/go-package4/","title":"Golang基础：源码与包（4）"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>Golang基础：源码与包（4） | 觅渡</title>
@@ -187,7 +187,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/06/14/go-package4/">
+    <link itemprop="mainEntityOfPage" href="http://blog.shuaimeng.top/2021/06/14/go-package4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/avatar.png">
@@ -430,7 +430,7 @@ setInterval("createtime()",250);
   
 
 
-  <script class="next-config" data-name="leancloud_visitors" type="application/json">{"enable":true,"app_id":"nr3dI0xbF01V9bp04CAlCh0Y-MdYXbMMI","app_key":"wt8iJI7KOyucOoqBaRM666rL","server_url":"visitors.shuaimeng.top","security":true,"Dependencies":"https://github.com/theme-next/hexo-leancloud-counter-security"}</script>
+  <script class="next-config" data-name="leancloud_visitors" type="application/json">{"enable":true,"app_id":"nr3dI0xbF01V9bp04CAlCh0Y","app_key":"wt8iJI7KOyucOoqBaRM666rL","server_url":"visitors.shuaimeng.top","security":false}</script>
   <script src="/js/third-party/statistics/lean-analytics.js"></script>
 
 

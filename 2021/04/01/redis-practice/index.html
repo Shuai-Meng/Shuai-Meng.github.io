@@ -18,32 +18,32 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha256-/4UQcSmErDzPCMAiuOiWPVVsNN2s3ZY/NsmXNcj0IFc=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"yoursite.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.15.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.shuaimeng.top","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.15.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="Redis分布式锁无论使用哪种技术组件，做分布式锁都要满足四个基本要求：  互斥性：同一个时刻，只能又一个客户端获取到锁，在它解锁之前，其他客户端无法加锁；  不能死锁：加锁和解锁这两个动作必须成对出现，加锁后必须解锁，否则其他客户端就无法再加锁；  “解铃还须系铃人”：同一把锁，其加锁和解锁两个动作必须由同一个客户端完成，即一个客户端不能释放另一个客户端加的锁；  容错性：不能出现单点故障，锁的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Redis实战中遇到的一些问题">
-<meta property="og:url" content="http://yoursite.com/2021/04/01/redis-practice/index.html">
+<meta property="og:url" content="http://blog.shuaimeng.top/2021/04/01/redis-practice/index.html">
 <meta property="og:site_name" content="觅渡">
 <meta property="og:description" content="Redis分布式锁无论使用哪种技术组件，做分布式锁都要满足四个基本要求：  互斥性：同一个时刻，只能又一个客户端获取到锁，在它解锁之前，其他客户端无法加锁；  不能死锁：加锁和解锁这两个动作必须成对出现，加锁后必须解锁，否则其他客户端就无法再加锁；  “解铃还须系铃人”：同一把锁，其加锁和解锁两个动作必须由同一个客户端完成，即一个客户端不能释放另一个客户端加的锁；  容错性：不能出现单点故障，锁的">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://yoursite.com/Users/mengshuai/projects/blog-front/source/_posts/redis-practice/cache-dirty.png">
-<meta property="og:image" content="http://yoursite.com/Users/mengshuai/projects/blog-front/source/_posts/redis-practice/cache-common.png">
-<meta property="og:image" content="http://yoursite.com/Users/mengshuai/projects/blog-front/source/_posts/redis-practice/cache-read-through.png">
-<meta property="og:image" content="http://yoursite.com/Users/mengshuai/projects/blog-front/source/_posts/redis-practice/cache-write-through.png">
+<meta property="og:image" content="http://blog.shuaimeng.top/Users/mengshuai/projects/blog-front/source/_posts/redis-practice/cache-dirty.png">
+<meta property="og:image" content="http://blog.shuaimeng.top/Users/mengshuai/projects/blog-front/source/_posts/redis-practice/cache-common.png">
+<meta property="og:image" content="http://blog.shuaimeng.top/Users/mengshuai/projects/blog-front/source/_posts/redis-practice/cache-read-through.png">
+<meta property="og:image" content="http://blog.shuaimeng.top/Users/mengshuai/projects/blog-front/source/_posts/redis-practice/cache-write-through.png">
 <meta property="article:published_time" content="2021-04-01T14:33:44.000Z">
 <meta property="article:modified_time" content="2021-04-01T08:16:12.878Z">
 <meta property="article:author" content="孟帅">
 <meta property="article:tag" content="redis">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/Users/mengshuai/projects/blog-front/source/_posts/redis-practice/cache-dirty.png">
+<meta name="twitter:image" content="http://blog.shuaimeng.top/Users/mengshuai/projects/blog-front/source/_posts/redis-practice/cache-dirty.png">
 
 
-<link rel="canonical" href="http://yoursite.com/2021/04/01/redis-practice/">
+<link rel="canonical" href="http://blog.shuaimeng.top/2021/04/01/redis-practice/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://yoursite.com/2021/04/01/redis-practice/","path":"2021/04/01/redis-practice/","title":"Redis实战中遇到的一些问题"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://blog.shuaimeng.top/2021/04/01/redis-practice/","path":"2021/04/01/redis-practice/","title":"Redis实战中遇到的一些问题"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>Redis实战中遇到的一些问题 | 觅渡</title>
@@ -192,7 +192,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/04/01/redis-practice/">
+    <link itemprop="mainEntityOfPage" href="http://blog.shuaimeng.top/2021/04/01/redis-practice/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/avatar.png">
@@ -469,7 +469,7 @@ setInterval("createtime()",250);
   
 
 
-  <script class="next-config" data-name="leancloud_visitors" type="application/json">{"enable":true,"app_id":"nr3dI0xbF01V9bp04CAlCh0Y-MdYXbMMI","app_key":"wt8iJI7KOyucOoqBaRM666rL","server_url":"visitors.shuaimeng.top","security":true,"Dependencies":"https://github.com/theme-next/hexo-leancloud-counter-security"}</script>
+  <script class="next-config" data-name="leancloud_visitors" type="application/json">{"enable":true,"app_id":"nr3dI0xbF01V9bp04CAlCh0Y","app_key":"wt8iJI7KOyucOoqBaRM666rL","server_url":"visitors.shuaimeng.top","security":false}</script>
   <script src="/js/third-party/statistics/lean-analytics.js"></script>
 
 

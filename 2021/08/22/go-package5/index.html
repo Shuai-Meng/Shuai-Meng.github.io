@@ -18,12 +18,12 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha256-/4UQcSmErDzPCMAiuOiWPVVsNN2s3ZY/NsmXNcj0IFc=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"yoursite.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.15.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.shuaimeng.top","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.15.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="版本冲突与菱形依赖假设有两个项目A和B，它们都依赖了C，但是对C的版本要求不一致，如果C的代码存放在GOPATH中，显然只能存一个C的版本，于是版本冲突了。 上面的情况如果只有一个项目就没问题，但还有更复杂的情形：假设有个项目D依赖了C和B，B和C又同时依赖了A，那么A的版本就更难以协调了，这也就是所谓的菱形依赖。如下图所示：  其实解决冲突或者菱形依赖的根本思路就是同一个依赖包的不同版本分开目录">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Go Modules(1)">
-<meta property="og:url" content="http://yoursite.com/2021/08/22/go-package5/index.html">
+<meta property="og:url" content="http://blog.shuaimeng.top/2021/08/22/go-package5/index.html">
 <meta property="og:site_name" content="觅渡">
 <meta property="og:description" content="版本冲突与菱形依赖假设有两个项目A和B，它们都依赖了C，但是对C的版本要求不一致，如果C的代码存放在GOPATH中，显然只能存一个C的版本，于是版本冲突了。 上面的情况如果只有一个项目就没问题，但还有更复杂的情形：假设有个项目D依赖了C和B，B和C又同时依赖了A，那么A的版本就更难以协调了，这也就是所谓的菱形依赖。如下图所示：  其实解决冲突或者菱形依赖的根本思路就是同一个依赖包的不同版本分开目录">
 <meta property="og:locale" content="zh_CN">
@@ -36,11 +36,11 @@
 <meta name="twitter:image" content="https://github.com/Shuai-Meng/blog-front/blob/master/source/uploads/dep.png">
 
 
-<link rel="canonical" href="http://yoursite.com/2021/08/22/go-package5/">
+<link rel="canonical" href="http://blog.shuaimeng.top/2021/08/22/go-package5/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://yoursite.com/2021/08/22/go-package5/","path":"2021/08/22/go-package5/","title":"Go Modules(1)"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://blog.shuaimeng.top/2021/08/22/go-package5/","path":"2021/08/22/go-package5/","title":"Go Modules(1)"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>Go Modules(1) | 觅渡</title>
@@ -189,7 +189,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/08/22/go-package5/">
+    <link itemprop="mainEntityOfPage" href="http://blog.shuaimeng.top/2021/08/22/go-package5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/avatar.png">
@@ -433,7 +433,7 @@ setInterval("createtime()",250);
   
 
 
-  <script class="next-config" data-name="leancloud_visitors" type="application/json">{"enable":true,"app_id":"nr3dI0xbF01V9bp04CAlCh0Y-MdYXbMMI","app_key":"wt8iJI7KOyucOoqBaRM666rL","server_url":"visitors.shuaimeng.top","security":true,"Dependencies":"https://github.com/theme-next/hexo-leancloud-counter-security"}</script>
+  <script class="next-config" data-name="leancloud_visitors" type="application/json">{"enable":true,"app_id":"nr3dI0xbF01V9bp04CAlCh0Y","app_key":"wt8iJI7KOyucOoqBaRM666rL","server_url":"visitors.shuaimeng.top","security":false}</script>
   <script src="/js/third-party/statistics/lean-analytics.js"></script>
 
 
