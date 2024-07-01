@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha256-/4UQcSmErDzPCMAiuOiWPVVsNN2s3ZY/NsmXNcj0IFc=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"yoursite.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.15.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="build单个导入路径单个文件golang要求源代码文件必须以“.go”作为名字后缀，这样才可以被build等命令行工具识别。  文件名后缀不是“.go” 123456789101112131415161718➜  example0 cat .&#x2F;example0.gopackage example0➜  example0 cat .&#x2F;example0.txtpackage example0➜  e">
+<meta property="og:type" content="article">
+<meta property="og:title" content="golang学习手册之build子命令（中）">
+<meta property="og:url" content="http://yoursite.com/2024/06/29/golang-build-2/index.html">
+<meta property="og:site_name" content="觅渡">
+<meta property="og:description" content="build单个导入路径单个文件golang要求源代码文件必须以“.go”作为名字后缀，这样才可以被build等命令行工具识别。  文件名后缀不是“.go” 123456789101112131415161718➜  example0 cat .&#x2F;example0.gopackage example0➜  example0 cat .&#x2F;example0.txtpackage example0➜  e">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-06-28T16:23:54.000Z">
+<meta property="article:modified_time" content="2024-07-01T02:49:40.545Z">
+<meta property="article:author" content="孟帅">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://yoursite.com/2024/06/29/golang-build-2/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://yoursite.com/2024/06/29/golang-build-2/","path":"2024/06/29/golang-build-2/","title":"golang学习手册之build子命令（中）"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>golang学习手册之build子命令（中） | 觅渡</title>
+  
+
+
+
+
+
+
+
+<link rel="dns-prefetch" href="comment.shuaimeng.top">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">觅渡</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li><li class="menu-item menu-item-commonweal"><a href="/404/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>公益 404</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#build%E5%8D%95%E4%B8%AA%E5%AF%BC%E5%85%A5%E8%B7%AF%E5%BE%84"><span class="nav-number">1.</span> <span class="nav-text">build单个导入路径</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8D%95%E4%B8%AA%E6%96%87%E4%BB%B6"><span class="nav-number">1.1.</span> <span class="nav-text">单个文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8D%95%E4%B8%AA%E7%9B%AE%E5%BD%95"><span class="nav-number">1.2.</span> <span class="nav-text">单个目录</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="孟帅"
+      src="/uploads/avatar.png">
+  <p class="site-author-name" itemprop="name">孟帅</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Shuai-Meng" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Shuai-Meng" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/u012668018" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;u012668018" rel="noopener me" target="_blank"><i class="fab fa-globe fa-fw"></i>CSDN</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://zhuanlan.zhihu.com/c_1042806937905266688" title="知乎专栏 → https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;c_1042806937905266688" rel="noopener me" target="_blank"><i class="fab fa-globe fa-fw"></i>知乎专栏</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.toutiao.com/c/user/5516059911//#mid=1616277150072835" title="头条号 → https:&#x2F;&#x2F;www.toutiao.com&#x2F;c&#x2F;user&#x2F;5516059911&#x2F;&#x2F;#mid&#x3D;1616277150072835" rel="noopener me" target="_blank"><i class="fab fa-globe fa-fw"></i>头条号</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.jianshu.com/u/6022549b794c" title="简书 → https:&#x2F;&#x2F;www.jianshu.com&#x2F;u&#x2F;6022549b794c" rel="noopener me" target="_blank"><i class="fab fa-globe fa-fw"></i>简书</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/mengshuaicalendr@gmail.com" title="E-Mail → mengshuaicalendr@gmail.com" rel="noopener me"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2024/06/29/golang-build-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="name" content="孟帅">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="觅渡">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="golang学习手册之build子命令（中） | 觅渡">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          golang学习手册之build子命令（中）
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-06-28 16:23:54" itemprop="dateCreated datePublished" datetime="2024-06-28T16:23:54Z">2024-06-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-07-01 02:49:40" itemprop="dateModified" datetime="2024-07-01T02:49:40Z">2024-07-01</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2024/06/29/golang-build-2/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2024/06/29/golang-build-2/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.6k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>6 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="build单个导入路径"><a href="#build单个导入路径" class="headerlink" title="build单个导入路径"></a>build单个导入路径</h3><h4 id="单个文件"><a href="#单个文件" class="headerlink" title="单个文件"></a>单个文件</h4><p>golang要求源代码文件必须以“.go”作为名字后缀，这样才可以被build等命令行工具识别。</p>
+<ol>
+<li><p>文件名后缀不是“.go”</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">➜  example0 cat ./example0.go</span><br><span class="line">package example0</span><br><span class="line">➜  example0 cat ./example0.txt</span><br><span class="line">package example0</span><br><span class="line">➜  example0 go build -n ./example0.go </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"></span></span><br><span class="line"><span class="language-bash"><span class="comment"># command-line-arguments</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"></span></span><br><span class="line"><span class="language-bash"><span class="built_in">mkdir</span> -p <span class="variable">$WORK</span>/b001/</span></span><br><span class="line">cat &gt;$WORK/b001/importcfg &lt;&lt; &#x27;EOF&#x27; # internal</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">import config</span></span><br><span class="line">EOF</span><br><span class="line">cd /home/Admin/projects/examples/example0</span><br><span class="line">/home/Admin/.g/go/pkg/tool/linux_arm64/compile -o $WORK/b001/_pkg_.a -trimpath &quot;$WORK/b001=&gt;&quot; -p command-line-arguments -complete -buildid Vw6mBaJb5SUht4kgt4T9/Vw6mBaJb5SUht4kgt4T9 -goversion go1.18 -c=4 -D _/home/Admin/projects/examples/example0 -importcfg $WORK/b001/importcfg -pack ./example0.go</span><br><span class="line">/home/Admin/.g/go/pkg/tool/linux_arm64/buildid -w $WORK/b001/_pkg_.a # internal</span><br><span class="line">➜  example0 go build -n ./example0.txt</span><br><span class="line">cannot find package &quot;.&quot; in:</span><br><span class="line">        /home/Admin/projects/examples/example0/example0.txt</span><br></pre></td></tr></table></figure>
+
+<p>两份文件内容是一样的，都只有一句package声明；编译go文件是正常的；但是编译txt文件会报错，说明golang的源代码文件名要以“.go”结尾。</p>
+<span id="more"></span>
+</li>
+<li><p>文件名后缀是“_test.go”</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">➜  example1 cat example1_test.go</span><br><span class="line">package example1</span><br><span class="line">➜  example1 go build -n ./example1_test.go</span><br><span class="line">➜  example1 </span><br></pre></td></tr></table></figure>
+
+<p>加了-n参数，但是没有任何输出，说明example1_test.go文件被build忽略了；实际上，这类go文件需要go test命令处理。</p>
+</li>
+<li><p>源代码不属于main包<br>由前文可知，当源代码不属于main包时，编译后的结果是库文件，但是默认情况下这个库文件不会被保存下来，想要保存要使用-o参数指定保存路径。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">➜  example2 cat example2.go                 </span><br><span class="line">package example2</span><br><span class="line">➜  example2 go build ./example2.go</span><br><span class="line">➜  example2 ls -al</span><br><span class="line">总用量 12</span><br><span class="line">drwxr-xr-x. 2 Admin Admin 4096 6月  24 17:02 .</span><br><span class="line">drwxr-xr-x. 8 Admin Admin 4096 6月  21 09:56 ..</span><br><span class="line">-rw-r--r--. 1 Admin Admin   17 6月  24 17:02 example2.go</span><br><span class="line">➜  example2 go build -o ./example.a ./example2.go</span><br><span class="line">➜  example2 ls</span><br><span class="line">example2.go  example.a</span><br><span class="line">➜  example2 file example.a    </span><br><span class="line">example.a: current ar archive</span><br></pre></td></tr></table></figure>
+
+<p>可以看到，若不使用-o参数，编译后确实没有产生任何新的文件；使用了-o参数指定了保存路径后，出现了新的文件example.a，其类型为archive，是个二进制类型的文件。<br>需要注意的是，编译库文件的源代码时，-o的参数值只能是文件而不能是目录，否则就会报错：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">➜  example2 go build -o ./ ./example2.go      </span><br><span class="line">go: no main packages to build</span><br></pre></td></tr></table></figure>
+
+<p>当试图将编译结果保存到当前目录时，报错了，这个错误暗示只有编译可执行文件的源代码时，才可以为-o参数指定目录。</p>
+</li>
+<li><p>源代码属于main包</p>
+<ul>
+<li><p>如果声明属于main包，源代码就必须存在一个main函数，否则编译报错。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">➜  example3 cat example3.go</span><br><span class="line">package main</span><br><span class="line">➜  example3 go build -o ./example3.go     </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">_/home/Admin/projects/examples/example3</span></span><br><span class="line">runtime.main_main·f: function main is undeclared in the main package</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>若属于main包且包含main函数，即存在程序执行入口，那么build默认会在当前目录保存编译结果——可执行文件，文件与源代码文件同名（除去后缀），这与编译库文件的源代码有所不同。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">➜  example3 cat example3.go</span><br><span class="line">package main</span><br><span class="line"></span><br><span class="line">func main() &#123;</span><br><span class="line">&#125;</span><br><span class="line">➜  example3 go build ./example3.go</span><br><span class="line">➜  example3 ls</span><br><span class="line">example3  example3.go</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>当然也可以对这类源代码文件使用-o参数，定制可执行文件的名字。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">➜  example3 go build -o main ./example3.go                  </span><br><span class="line">➜  example3 ls</span><br><span class="line">example3  example3.go  main</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>不同的是，此时-o参数的值还可以是目录，build会在指定目录下保存可执行文件，名字默认与源代码文件同名。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">➜  example3 mkdir tmp1</span><br><span class="line">➜  example3 go build -o ./tmp1 ./example3.go </span><br><span class="line">➜  example3 ls tmp1 </span><br><span class="line">example3</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>​       先创建目录tmp1，然后编译的时候将其指定为保存路径，编译完成后在tmp1目录中生成了可执行文件example3。</p>
+<ul>
+<li><p>若目录不存在，还会先创建目录，需要注意指定不存在的目录时，需要在目录名末尾添加“&#x2F;”，否则会被当做文件。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">➜  example3 go build -o ./tmp2/ ./example3.go</span><br><span class="line">➜  example3 ls</span><br><span class="line">example3  example3.go  main  tmp1  tmp2</span><br><span class="line">➜  example3 ls tmp2</span><br><span class="line">example3</span><br></pre></td></tr></table></figure>
+
+<p>tmp2目录本来不存在，编译之后，先创建了tmp2目录，然后在其中生成了对应的可执行文件。</p>
+</li>
+<li><p>main函数只有在属于main包时才有意义，会被特殊对待；若不属于main包，就是一个普通函数。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">➜  example3 cat tmp.go</span><br><span class="line">package example3</span><br><span class="line"></span><br><span class="line">func main() &#123;</span><br><span class="line">&#125;</span><br><span class="line">➜  example3 go build ./tmp.go</span><br><span class="line">➜  example3 ls</span><br><span class="line">example3  example3.go  main  tmp1  tmp2  tmp.go</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ol>
+<p>​			   tmp.go文件声明所在包是example3，虽然含有main函数，但是编译之后并没有生成对应的可执行文件。</p>
+<h4 id="单个目录"><a href="#单个目录" class="headerlink" title="单个目录"></a>单个目录</h4><ol>
+<li><p>若导入路径是一个目录，则目录中必须包含golang源代码文件才可以进行编译，否则会报错。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">➜  example4 ls</span><br><span class="line">example4.txt</span><br><span class="line">➜  example4 go build .</span><br><span class="line">package .: no Go files in /home/Admin/projects/examples/example4</span><br></pre></td></tr></table></figure>
+
+<p>当前目录仅有一个txt文件，编译当前目录就会报错，说找不到go文件；可想而知，如果目录是空的，也会是同样结果。</p>
+</li>
+<li><p>build不会递归的去编译目录，也就是仅仅编译导入路径指定的目录，但是不包括其子目录；也可以理解为，build同样会忽略指定目录下类型为目录的文件。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">➜  example4 cat tmp/tmp.go </span><br><span class="line">package main</span><br><span class="line"></span><br><span class="line">func main() &#123;</span><br><span class="line">&#125;</span><br><span class="line">➜  example4 go build -o main ./tmp</span><br><span class="line">➜  example4 ls</span><br><span class="line">example4.txt  main  tmp</span><br><span class="line">➜  example4 go build .</span><br><span class="line">package .: no Go files in /home/Admin/projects/examples/example4</span><br></pre></td></tr></table></figure>
+
+<p>直接编译子目录tmp是成功的，在当前目录下生成了可执行文件；但是编译当前目录example4还是一样的报错，这说明指定目录的子目录不会影响该目录的编译结果，亦即目录不会递归编译。</p>
+</li>
+<li><p>导入路径指定目录下若存在多个go文件，则要求这些文件属于同一个包，否则会报错。</p>
+</li>
+</ol>
+   <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">➜  example5 cat ./example5.go</span><br><span class="line">package main</span><br><span class="line"></span><br><span class="line">func main() &#123;</span><br><span class="line">&#125;</span><br><span class="line">➜  example5 cat ./tmp.go     </span><br><span class="line">package tmp</span><br><span class="line"></span><br><span class="line">func tmp() &#123;</span><br><span class="line">&#125;</span><br><span class="line">➜  example5 go build .</span><br><span class="line">found packages main (example5.go) and tmp (tmp.go) in /home/Admin/projects/examples/example5</span><br></pre></td></tr></table></figure>
+
+<p>   两个go文件分别声明了自己的包是main和tmp，那么build它们共同所在的目录，就报错了。</p>
+<ol start="4">
+<li><p>导入路径指定目录下的go文件属于同一个非main包<br>与编译单个非main包的go文件的表现几乎一样，区别就是指定目录下可能会有多个go文件一起被编译。</p>
+</li>
+<li><p>导入路径指定目录下的go文件都属于main包<br>与编译单个main包的go文件几乎一样，区别就是指定目录下会有多个go文件一起被编译，可执行文件的名字默认与源代码所在目录同名。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">➜  example6 cat main.go </span><br><span class="line">package main</span><br><span class="line"></span><br><span class="line">func main() &#123;</span><br><span class="line">&#125;</span><br><span class="line">➜  example6 cat example6.go </span><br><span class="line">package main</span><br><span class="line"></span><br><span class="line">func test() &#123;</span><br><span class="line">&#125;</span><br><span class="line">➜  example6 go build .          </span><br><span class="line">➜  example6 ls</span><br><span class="line">example6  example6.go  main.go</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/06/29/golang-build-1/" rel="prev" title="golang学习手册之build子命令（上）">
+                  <i class="fa fa-chevron-left"></i> golang学习手册之build子命令（上）
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/07/01/golang-build-3/" rel="next" title="golang学习手册之build子命令（下）">
+                  golang学习手册之build子命令（下） <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="waline"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">shuai.meng</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">43k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">2:37</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div><!-- 站点运行时间 -->
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("10/01/2018 17:38:00");//在此处修改你的建站时间
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = "<br>本站已安全运行 "+dnum+" 天 "; 
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+    } 
+setInterval("createtime()",250);
+</script>
+
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"comment.shuaimeng.top","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":false,"locale":{"placeholder":"疑义相与析，畅所欲言，不登录也没关系哒"},"avatar":"mm","meta":["nick","mail"],"pageSize":10,"visitor":true,"comment_count":true,"requiredFields":["nick"],"libUrl":"https://unpkg.com/@waline/client@v2/dist/waline.js","login":"enable","el":"#waline","comment":true,"path":"/2024/06/29/golang-build-2/"}</script>
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() =>
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => 
+    Waline.init(Object.assign({}, CONFIG.waline,{ el: document.querySelector(CONFIG.waline.el) }))
+  );
+});
+</script>
+
+</body>
+</html>

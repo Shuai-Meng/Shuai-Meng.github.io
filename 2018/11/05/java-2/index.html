@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha256-/4UQcSmErDzPCMAiuOiWPVVsNN2s3ZY/NsmXNcj0IFc=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"yoursite.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.15.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="类名&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;Java编译器的设计与java源代码的语法结构是相辅相成的，先有语法，再有编译器。大家都知道，java是以类为单位进行组织的，类是java对世界的抽象描述，Java程序的运行其实就是多个类之间的相互调用。表现在源码上，java的语法规定，用class关键字声明一个类，如下所示： 12345class Demo &amp;#123;    public s">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java 漫谈（二）">
+<meta property="og:url" content="http://yoursite.com/2018/11/05/java-2/index.html">
+<meta property="og:site_name" content="觅渡">
+<meta property="og:description" content="类名&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;Java编译器的设计与java源代码的语法结构是相辅相成的，先有语法，再有编译器。大家都知道，java是以类为单位进行组织的，类是java对世界的抽象描述，Java程序的运行其实就是多个类之间的相互调用。表现在源码上，java的语法规定，用class关键字声明一个类，如下所示： 12345class Demo &amp;#123;    public s">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-11-05T00:43:04.000Z">
+<meta property="article:modified_time" content="2024-06-05T07:30:32.343Z">
+<meta property="article:author" content="孟帅">
+<meta property="article:tag" content="java">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://yoursite.com/2018/11/05/java-2/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://yoursite.com/2018/11/05/java-2/","path":"2018/11/05/java-2/","title":"Java 漫谈（二）"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Java 漫谈（二） | 觅渡</title>
+  
+
+
+
+
+
+
+
+<link rel="dns-prefetch" href="comment.shuaimeng.top">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">觅渡</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li><li class="menu-item menu-item-commonweal"><a href="/404/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>公益 404</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%B1%BB%E5%90%8D"><span class="nav-number">1.</span> <span class="nav-text">类名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#javac%E4%B8%8Ejava%E5%91%BD%E4%BB%A4"><span class="nav-number">2.</span> <span class="nav-text">javac与java命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E5%AF%B9%E6%BA%90%E7%A0%81%E6%96%87%E4%BB%B6%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="nav-number">3.</span> <span class="nav-text">访问权限对源码文件的影响</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90"><span class="nav-number">3.1.</span> <span class="nav-text">访问权限</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AF%B9%E6%BA%90%E7%A0%81%E6%96%87%E4%BB%B6%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="nav-number">3.2.</span> <span class="nav-text">对源码文件的影响</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%AA%8C%E8%AF%81"><span class="nav-number">3.3.</span> <span class="nav-text">验证</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="孟帅"
+      src="/uploads/avatar.png">
+  <p class="site-author-name" itemprop="name">孟帅</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Shuai-Meng" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Shuai-Meng" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/u012668018" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;u012668018" rel="noopener me" target="_blank"><i class="fab fa-globe fa-fw"></i>CSDN</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://zhuanlan.zhihu.com/c_1042806937905266688" title="知乎专栏 → https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;c_1042806937905266688" rel="noopener me" target="_blank"><i class="fab fa-globe fa-fw"></i>知乎专栏</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.toutiao.com/c/user/5516059911//#mid=1616277150072835" title="头条号 → https:&#x2F;&#x2F;www.toutiao.com&#x2F;c&#x2F;user&#x2F;5516059911&#x2F;&#x2F;#mid&#x3D;1616277150072835" rel="noopener me" target="_blank"><i class="fab fa-globe fa-fw"></i>头条号</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.jianshu.com/u/6022549b794c" title="简书 → https:&#x2F;&#x2F;www.jianshu.com&#x2F;u&#x2F;6022549b794c" rel="noopener me" target="_blank"><i class="fab fa-globe fa-fw"></i>简书</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/mengshuaicalendr@gmail.com" title="E-Mail → mengshuaicalendr@gmail.com" rel="noopener me"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/05/java-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="name" content="孟帅">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="觅渡">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Java 漫谈（二） | 觅渡">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Java 漫谈（二）
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-11-05 00:43:04" itemprop="dateCreated datePublished" datetime="2018-11-05T00:43:04Z">2018-11-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-06-05 07:30:32" itemprop="dateModified" datetime="2024-06-05T07:30:32Z">2024-06-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2018/11/05/java-2/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2018/11/05/java-2/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.8k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>7 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h4 id="类名"><a href="#类名" class="headerlink" title="类名"></a>类名</h4><p>&ensp;&ensp;&ensp;&ensp;Java编译器的设计与java源代码的语法结构是相辅相成的，先有语法，再有编译器。大家都知道，java是以类为单位进行组织的，类是java对世界的抽象描述，Java程序的运行其实就是多个类之间的相互调用。表现在源码上，java的语法规定，用class关键字声明一个类，如下所示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class Demo &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        System.out.println(9);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&ensp;&ensp;&ensp;&ensp;class关键字紧跟一个空格后面就是类的名称，再隔一个空格就是类的内容，用一对花括号包裹，类中的内容主要分为字段（也称为域或属性）和方法两部分。上面这个类没有属性，只有一个名为main的方法，它将会在屏幕上打印数字9。把这个类的代码保存在文件test.java中。<br>很多教科书上都说，类名需要首字母大写，但我自己实验了一下，其实小写也可以编译并且运行。然而，还是建议遵循规范，类名首字母大写。</p>
+<span id="more"></span>
+
+<h4 id="javac与java命令"><a href="#javac与java命令" class="headerlink" title="javac与java命令"></a>javac与java命令</h4><p>&ensp;&ensp;&ensp;&ensp;编译并执行上面的test.java，如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">➜  show ls</span><br><span class="line">test.java</span><br><span class="line">➜  show javac test.java</span><br><span class="line">➜  show ls</span><br><span class="line">Demo.class test.java</span><br><span class="line">➜  show java Demo</span><br><span class="line">9</span><br></pre></td></tr></table></figure>
+<p>&ensp;&ensp;&ensp;&ensp;上面的操作是在Linux系统的命令行中，show是当前所在目录的名字，编译使用的javac命令以及执行使用的java命令都是java自身提供的原生命令，这两个命令可以说是java最基本的两个工具了。高级开发工具（IDE）如IDEA，底层其实也是调用的这两个命令，IDE虽然使开发更方便，但代价就是隐藏了很多底层细节，让你不知道在操作系统层面到底发生了什么。我个人其实更喜欢更底层打交道，这样才会对计算机技术了解的更深。现在，从上面的展示中可以发现以下信息：<br>&ensp;1. 编译之后的class文件名与类名保持一致；<br>&ensp;2. 源代码文件名可以与类名不一致，但是后缀必须是.java，否则编译器无法识别；<br>&ensp;3. 执行时，直接在java命令后面写上类名即可，不必加上.class后缀，加上反而会报错。<br>&ensp;&ensp;&ensp;&ensp;第二点需要展开说一下，一个java的源代码文件中，可以保存多个类，但是源码中声明了几个class，在编译后就会生成几个对应的class文件。这意味着，一个class文件只能保存一个类的信息，但是多个类的源代码可以共存在一个.java文件中。习惯上，我们倾向于一个java文件只保存一个类的源码，也就是只声明一个class，很少出现多个class的情形，这样做的目的是使工程结构更清晰，更方便管理。共存情况示例如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">class Demo1 &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        System.out.println(9);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Demo2 &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        System.out.println(8);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">➜  show javac test.java</span><br><span class="line">➜  show ls</span><br><span class="line">Demo1.class Demo2.class test.java</span><br></pre></td></tr></table></figure>
+<h4 id="访问权限对源码文件的影响"><a href="#访问权限对源码文件的影响" class="headerlink" title="访问权限对源码文件的影响"></a>访问权限对源码文件的影响</h4><h5 id="访问权限"><a href="#访问权限" class="headerlink" title="访问权限"></a>访问权限</h5><p>&ensp;&ensp;&ensp;&ensp;下面引入访问权限的概念。说到访问权限，不得不提面试经常会被问到的java作为面向对象语言的三大特性：封装、继承和多态，而访问权限正是特性之一“封装”的体现。所谓封装，指的是隐藏实现细节，这也是设计的哲学之一：客户只需要知道功能怎么用即可，而不需要知道这个功能是如何实现的。<br>&ensp;&ensp;&ensp;&ensp;Java中的访问权限分为四个级别：私有权限、默认权限、继承权限和公共权限，权限依次增大。具体到语法上：<br>&ensp;1. private关键字代表私有权限，只能修饰类的字段或方法，不能修饰类本身，私有权限的意思是只能在该类内部可访问，其他类访问不到；<br>&ensp;2. protected关键字代表继承权限，同样无法修饰类本身，被protected修饰的字段或方法，只能被继承该类的子类所访问；<br>&ensp;3. public关键字代表公共权限，可以修饰类本身以及类的字段或方法，其含义是其他任何类都可以访问；<br>&ensp;4. 若类、类的字段或方法没有被以上任何一个关键字修饰，则意味着default（默认）权限，默认权限意味着只有和该类在同一个包下的类才可以访问。<br>&ensp;&ensp;&ensp;&ensp;注意，<em>默认权限并没有对应的关键字</em>，default虽然是java的一个关键字，但是跟权限无关；若想要类或类的字段及方法拥有默认权限，只要不在其前面添加任何权限修饰符即可。关于继承、包以及更多访问权限相关内容，以后会慢慢揭开它们的神秘面纱。</p>
+<h5 id="对源码文件的影响"><a href="#对源码文件的影响" class="headerlink" title="对源码文件的影响"></a>对源码文件的影响</h5><p>&ensp;&ensp;&ensp;&ensp;由上可知，类本身的访问权限只有两种：公共权限或默认权限。具体到语法上，class的权限修饰符，要么是public，要么啥都没有。这会产生什么影响呢？这会影响.java文件的命名。上面提到，同一份java源码文件中可以声明多个类，而且文件的命名与类的命名毫无关系。现在，引入访问权限机制以后，增加了以下约束：<br>&ensp;1. 在一份源码文件声明的所有类当中，最多只能有一个被public修饰；<br>&ensp;2. 若一份源码文件中存在一个类被public修饰，那么该源码文件的命名必须和该类名一致。</p>
+<h5 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h5><p>&ensp;&ensp;&ensp;&ensp;test.java文件修改如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public class Demo1 &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        System.out.println(9);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Demo2 &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        System.out.println(8);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&ensp;&ensp;&ensp;&ensp;编译：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">➜  show javac test.java</span><br><span class="line">test.java:1: 错误: 类Demo1是公共的, 应在名为 Demo1.java 的文件中声明</span><br><span class="line">public class Demo1 &#123;</span><br><span class="line">       ^</span><br><span class="line">1 个错误</span><br></pre></td></tr></table></figure>
+<p>&ensp;&ensp;&ensp;&ensp;这说明，一旦有一个类被声明为public，那么源码文件的名称必须以该类的名称命名。将文件改名为Demo1.java后编译通过。如果两个类都是public的会怎样？</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public class Demo1 &#123; </span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        System.out.println(9);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class Demo2 &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        System.out.println(8);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">➜  show javac Demo1.java</span><br><span class="line">Demo1.java:7: 错误: 类Demo2是公共的, 应在名为 Demo2.java 的文件中声明</span><br><span class="line">public class Demo2 &#123;</span><br><span class="line">       ^</span><br><span class="line">1 个错误</span><br></pre></td></tr></table></figure>
+<p>&ensp;&ensp;&ensp;&ensp;上面的测试表明，当在一个.java文件中声明一个以上的public class时，会出现一山不容二虎的情况，编译器会提示每个public类要保存在一个单独的以自己名字命名的.java文件中。<br>&ensp;&ensp;&ensp;&ensp;那么问题来了：java为什么要这么设计？网上查了很多资料，并没有特别使我信服的，不过确实开阔了一下脑洞。自己做了些实验，应该解开了这个谜题，欲知后事如何，且听下回分解。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/java/" rel="tag"># java</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2018/11/05/java-1/" rel="prev" title="Java漫谈（一）">
+                  <i class="fa fa-chevron-left"></i> Java漫谈（一）
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2018/11/05/java-3/" rel="next" title="Java漫谈（三）">
+                  Java漫谈（三） <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="waline"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">shuai.meng</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">43k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">2:37</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div><!-- 站点运行时间 -->
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("10/01/2018 17:38:00");//在此处修改你的建站时间
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = "<br>本站已安全运行 "+dnum+" 天 "; 
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+    } 
+setInterval("createtime()",250);
+</script>
+
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"comment.shuaimeng.top","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":false,"locale":{"placeholder":"疑义相与析，畅所欲言，不登录也没关系哒"},"avatar":"mm","meta":["nick","mail"],"pageSize":10,"visitor":true,"comment_count":true,"requiredFields":["nick"],"libUrl":"https://unpkg.com/@waline/client@v2/dist/waline.js","login":"enable","el":"#waline","comment":true,"path":"/2018/11/05/java-2/"}</script>
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() =>
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => 
+    Waline.init(Object.assign({}, CONFIG.waline,{ el: document.querySelector(CONFIG.waline.el) }))
+  );
+});
+</script>
+
+</body>
+</html>
