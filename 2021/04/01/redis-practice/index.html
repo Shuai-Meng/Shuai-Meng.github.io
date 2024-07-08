@@ -27,16 +27,16 @@
 <meta property="og:site_name" content="觅渡">
 <meta property="og:description" content="Redis分布式锁无论使用哪种技术组件，做分布式锁都要满足四个基本要求：  互斥性：同一个时刻，只能又一个客户端获取到锁，在它解锁之前，其他客户端无法加锁；  不能死锁：加锁和解锁这两个动作必须成对出现，加锁后必须解锁，否则其他客户端就无法再加锁；  “解铃还须系铃人”：同一把锁，其加锁和解锁两个动作必须由同一个客户端完成，即一个客户端不能释放另一个客户端加的锁；  容错性：不能出现单点故障，锁的">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://yoursite.com/Users/mengshuai/projects/blog-front/source/_posts/redis-practice/cache-dirty.png">
-<meta property="og:image" content="http://yoursite.com/Users/mengshuai/projects/blog-front/source/_posts/redis-practice/cache-common.png">
+<meta property="og:image" content="http://yoursite.com/2021/04/01/redis-practice/cache-dirty.png">
+<meta property="og:image" content="http://yoursite.com/2021/04/01/redis-practice/cache-common.png">
 <meta property="og:image" content="http://yoursite.com/2021/04/01/redis-practice/cache-read-through.png">
-<meta property="og:image" content="http://yoursite.com/Users/mengshuai/projects/blog-front/source/_posts/redis-practice/cache-write-through.png">
+<meta property="og:image" content="http://yoursite.com/2021/04/01/redis-practice/cache-write-through.png">
 <meta property="article:published_time" content="2021-04-01T14:33:44.000Z">
-<meta property="article:modified_time" content="2024-07-01T02:48:15.239Z">
+<meta property="article:modified_time" content="2024-07-01T03:24:49.461Z">
 <meta property="article:author" content="孟帅">
 <meta property="article:tag" content="redis">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/Users/mengshuai/projects/blog-front/source/_posts/redis-practice/cache-dirty.png">
+<meta name="twitter:image" content="http://yoursite.com/2021/04/01/redis-practice/cache-dirty.png">
 
 
 <link rel="canonical" href="http://yoursite.com/2021/04/01/redis-practice/">
@@ -133,16 +133,16 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
@@ -228,7 +228,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-07-01 02:48:15" itemprop="dateModified" datetime="2024-07-01T02:48:15Z">2024-07-01</time>
+      <time title="修改时间：2024-07-01 03:24:49" itemprop="dateModified" datetime="2024-07-01T03:24:49Z">2024-07-01</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -320,14 +320,14 @@
 </ol>
 <p>线程一：删除缓存———————————————更新数据库</p>
 <p>线程二：              读缓存 – 空 – 读数据源 – 更新缓存</p>
-<p><img src="/Users/mengshuai/projects/blog-front/source/_posts/redis-practice/cache-dirty.png"></p>
+<p><img src="/2021/04/01/redis-practice/cache-dirty.png"></p>
 <p>并发场景下，线程一删除缓存后，线程二重新载入了缓存，此时线程一还没来得及更新数据源，所以缓存中是过时的脏数据。</p>
 <ol start="2">
 <li>先更新数据库，再删除缓存。</li>
 </ol>
 <p>线程一：                                     更新数据库 – 删除缓存</p>
 <p>线程二：读缓存 – 空 – 读数据源 ——————————更新缓存</p>
-<p><img src="/Users/mengshuai/projects/blog-front/source/_posts/redis-practice/cache-common.png"></p>
+<p><img src="/2021/04/01/redis-practice/cache-common.png"></p>
 <p>好像出现了同样的问题，但是概率降低了很多：首先是读线程访问缓存的时候，数据恰好失效了；同时它在读数据源的时候，恰好遭遇了写线程，而且先读再写；另外，在操作缓存的时候，还必须是写线程先删除了缓存（虽然此时缓存已经失效），读线程再更新缓存。这几件事叠加在一起同时发生的概率几乎可以忽略不计。所以总体来说，这个方案是安全的，Facebook也是采用的这种方案。</p>
 <ol start="3">
 <li>Read Through</li>
@@ -338,7 +338,7 @@
 <li>Write Through</li>
 </ol>
 <p>读请求仍然止步于缓存层，写请求直接去更新缓存：如果写请求没有命中缓存，则直接更新数据库；如果命中缓存，直接更新缓存，然后缓存自己去更新数据库（这两个动作是原子的）。</p>
-<p><img src="/Users/mengshuai/projects/blog-front/source/_posts/redis-practice/cache-write-through.png"></p>
+<p><img src="/2021/04/01/redis-practice/cache-write-through.png"></p>
 <ol start="5">
 <li>Write Back</li>
 </ol>
@@ -372,13 +372,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2019/08/19/java-6/" rel="prev" title="Java总结——类与对象">
-                  <i class="fa fa-chevron-left"></i> Java总结——类与对象
+                <a href="/2018/10/05/cache/" rel="prev" title="缓存与页面自动更新">
+                  <i class="fa fa-chevron-left"></i> 缓存与页面自动更新
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/04/12/go-package1/" rel="next" title="Golang基础：源码与包（1）">
-                  Golang基础：源码与包（1） <i class="fa fa-chevron-right"></i>
+                <a href="/2024/06/29/golang-build-1/" rel="next" title="golang学习手册之build子命令（上）">
+                  golang学习手册之build子命令（上） <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -412,13 +412,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">43k</span>
+    <span title="站点总字数">7k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:37</span>
+    <span title="站点阅读时长">27 分钟</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
